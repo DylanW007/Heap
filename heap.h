@@ -1,5 +1,9 @@
 #ifndef heap_h
 #define heap_h
+#include <string>
+
+using namespace std;
+
 const int HEAPSIZE = 100;
 
 class heap{
@@ -8,7 +12,7 @@ class heap{
      heap(){size=0;}
      
      void heapBuild(); // Build from array
-     void heapFileBuild(const char* filename); // Read from file
+     void heapFileBuild(string filename); // Read from file
      
      void add(int num); // Add number to tree
      
