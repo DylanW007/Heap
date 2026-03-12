@@ -1,7 +1,9 @@
 #include <iostream>
+#include "heap.h"
+
 using namespace std;
 
-#include "heap.h"
+heap h;
 
 void heapadd(){
     //"this means your program should be able to handle both input methods"
@@ -20,17 +22,16 @@ void heapadd(){
         cin >> choice; 
         
         if (choice == 1){
-            // Code to allow user to enter values up to 100 numbers
             addcheck = false;
+            h.heapBuild();
         }
         else if (choice == 2){
-            // Code to automatically add numbers from file
             addcheck = false;
             char numbers[100];
-	    cout << "What is your filename (x.txt)?:";
-	    string filename;
-	    cin >> filename;
-	    //Code to pick numbers from filename
+	        cout << "What is your filename (x.txt)?:";
+	        string filename;
+	        cin >> filename;
+	        h.heapFileBuild(filename);
         }
         else{
             cout << "Numbers 1-2 only" << endl;
@@ -55,10 +56,14 @@ void heapremove(){
         cin >> choice; 
         
         if (choice == 1){
-            // Code to remove head
+            removecheck = false;
+            cout << "Removing max" << endl;
+            h.clearMax();
         }
         else if (choice == 2){
-            // Code to delete all numbers
+            removecheck = false;
+            cout << "Removing all" << endl;
+            h.clearAll();
         }
         else{
             cout << "Numbers 1-2 only" << endl;
@@ -69,6 +74,7 @@ void heapremove(){
 void heapprint(){
     
     cout << "Heap Printing" << endl;
+    h.print(0);
     
 }
 
